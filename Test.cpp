@@ -1,20 +1,18 @@
 #include <iostream>
-#include "Board.cpp"
+#include "src/Board.cpp"
 
 using namespace std;
 
 int main() {
-	Board testBoard;
+	Board testBoard('Q');
 
-	vector<vector<int> > board = testBoard.getBoard();
+	vector<vector<Square> > board = testBoard.getBoard();
 	for (int i = 0; i < 8; ++i){
 		for (int j = 0; j < 8; ++j){
-			cout << board[i][j] << " ";
+			cout << board[i][j].getPiece()->getPieceType() << " ";
 		}
 		cout << endl;
 	}
 
-
-	cout << "Hej skattemuuuuuus!";
 	return 0;
 }
