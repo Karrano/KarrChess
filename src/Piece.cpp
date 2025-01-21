@@ -1,3 +1,5 @@
+#include "Piece.h"
+
 #include <vector>
 #include <stdexcept>
 #include <iostream>
