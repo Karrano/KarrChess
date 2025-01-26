@@ -5,7 +5,7 @@ class Piece{
 private:
 
 void setCharArray(bool array[256]);
-char pieceType;
+char pieceType; //'K' - king, 'Q' - queen, 'B' - bishop, 'N' - kNight, 'R' - rook, 'P' - pawn, 'O' -withOut a piece
 bool charArray[256];
 
 public:

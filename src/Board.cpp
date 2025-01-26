@@ -1,20 +1,10 @@
-#include <vector>
-#include <stdexcept>
-#include <iostream>
-#include "Square.cpp"
+#include "Board.h"
 
 using namespace std; 
 
-class Board{
-	private:
-		vector<vector<Square> > board; 
-		static int boardSize = 8; //Default size for chess Board
-	public:
-		Board(char c) : board(boardSize, vector<Square>(boardSize, Square()))  {
-		 }
+Board::Board(char c, int boardSize) : board(boardSize, vector<Square>(boardSize, Square()))  {
+ }
 
-		vector<vector<Square> > getBoard() {
-			return board; 
-		}
-};
-
+vector<vector<Square> > Board::getBoard() {
+	return board; 
+}
