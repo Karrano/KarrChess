@@ -7,7 +7,7 @@
 using namespace std; 
 
 
-void Piece::setCharArray(bool array[256]){
+void Piece::setCharArrayPiece(bool array[256]){
 	for(int i = 0; i < 256; ++i){
 		array[i] = false;
 	}
@@ -21,9 +21,19 @@ void Piece::setCharArray(bool array[256]){
 	array['O'] = true;
 }
 
-Piece::Piece(char c){
-	setCharArray(charArray);
-	if(charArray[c]){
+void Piece::setCharArrayColor(bool array[256]){
+	for(int i = 0; i < 256; ++i){
+		array[i] = false;
+	}
+
+	array['B'] = true;
+	array['O'] = true;
+	array['W'] = true;
+}
+
+Piece::Piece(char t, char c){
+	setCharArrayPiece(charArrayPiece);
+	if(charArrayPiece[c]){
 		pieceType = c;
 	} else {
 		throw logic_error("Piece character not valid");

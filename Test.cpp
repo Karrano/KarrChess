@@ -4,7 +4,7 @@
 using namespace std;
 
 int main() {
-	Board testBoard('Q');
+	Board testBoard;
 
 	vector<vector<Square> > board = testBoard.getBoard();
 	for (int i = 0; i < 8; ++i){

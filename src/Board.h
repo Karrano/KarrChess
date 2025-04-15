@@ -11,6 +11,7 @@ class Board{
 		vector<vector<Square> > board;
 		int boardSize;
 	public:
+		Board();
 		Board(char c, int boardSize = 8);
 		vector<vector<Square> > getBoard();
 };

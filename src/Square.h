@@ -8,7 +8,7 @@ class Square{
 	public:
 		Square();
 
-		Square(char c);
+		Square(char t, char c);
 
 		Piece* getPiece();
 

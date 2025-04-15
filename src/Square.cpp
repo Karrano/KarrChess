@@ -1,11 +1,11 @@
 #include "Square.h"
 
 Square::Square(){
-	piece = new Piece('O');
+	piece = new Piece('O', 'O');
 }
 
-Square::Square(char c){
-	piece = new Piece(c);
+Square::Square(char t, char c){
+	piece = new Piece(t, c);
 }
 
 Piece* Square::getPiece(){

@@ -4,12 +4,15 @@
 class Piece{
 private:
 
-void setCharArray(bool array[256]);
+void setCharArrayPiece(bool array[256]);
+void setCharArrayColor(bool array[256]);
 char pieceType; //'K' - king, 'Q' - queen, 'B' - bishop, 'N' - kNight, 'R' - rook, 'P' - pawn, 'O' -withOut a piece
-bool charArray[256];
+char color; //'W' - white, 'B' - black, 'O' -withOut a color
+bool charArrayPiece[256];
+bool charArrayColor[256];
 
 public:
-Piece(char c);
+Piece(char t, char c);
 char getPieceType();
 //TODO: implement
 void setCharType();
