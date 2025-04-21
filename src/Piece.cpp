@@ -1,9 +1,5 @@
 #include "Piece.h"
 
-#include <vector>
-#include <stdexcept>
-#include <iostream>
-
 using namespace std; 
 
 
@@ -31,15 +27,47 @@ void Piece::setCharArrayColor(bool array[256]){
 	array['W'] = true;
 }
 
-Piece::Piece(char t, char c){
-	setCharArrayPiece(charArrayPiece);
-	if(charArrayPiece[c]){
-		pieceType = c;
-	} else {
-		throw logic_error("Piece character not valid");
-	}	
+string Piece::getPieceRepresentation(char c, char t){
+	map<string, string> map{
+		{"WK", "\u2654"}, //White King
+		{"WQ", "\u2655"}, //White Queen
+		{"WR", "\u2656"}, //White Rook
+		{"WB", "\u2657"}, //White Bishop
+		{"WN", "\u2658"}, //White kNight
+		{"WP", "\u2659"}, //White Pawn
+
+
+		{"BK", "\u265A"}, //Black King
+		{"BQ", "\u265B"}, //Black Queen
+		{"BR", "\u265C"}, //Black Rook
+		{"BB", "\u265D"}, //Black Bishop
+		{"BN", "\u265E"}, //Black kNight
+		{"BP", "\u265F"}, //Black Pawn
+	};
+
+	string charString = string{c, t};
+
+	return map[charString];
 }
 
-char Piece::getPieceType(){
-	return pieceType;
+Piece::Piece(char c, char t){
+	setCharArrayPiece(charArrayPiece);
+	setCharArrayColor(charArrayColor);
+	if(charArrayPiece[t]){
+		pieceType = t;
+	} else {
+		throw logic_error("Piece type not valid");
+	}	
+
+	if(charArrayColor[c]){
+		color = c;
+	} else {
+		throw logic_error("Piece color not valid");
+	}
+
+	pieceRepresentation = getPieceRepresentation(color, pieceType);
+}
+
+string Piece::getPieceType(){
+	return pieceRepresentation;
 }
