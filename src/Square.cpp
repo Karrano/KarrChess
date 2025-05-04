@@ -12,6 +12,10 @@ Piece* Square::getPiece(){
 	return piece;
 }
 
+void Square::setPiece(Piece *newPiece){
+	piece = newPiece;
+}
+
 void Square::setXCoord(int i){
 	 x_coord = i;
 }

@@ -31,6 +31,13 @@ Board::Board() : board(8, vector<Square>(8, Square())) {
 	for(int i = 0; i < 8; i++){
 		board[6][i] = Square('W', 'P');
 	}
+
+	//initializing the empty squares
+	for(int i = 2; i < 6; i++){
+		for(int j = 0; j < 8; j++){
+			board[i][j] = Square();	
+		}
+	}
 }
 
 Board::Board(char c, int boardSize) : board(boardSize, vector<Square>(boardSize, Square()))  {
@@ -39,4 +46,43 @@ Board::Board(char c, int boardSize) : board(boardSize, vector<Square>(boardSize,
 
 vector<vector<Square> > Board::getBoard() {
 	return board; 
+}
+
+void Board::printBoard(){
+	for (int i = 7; i >= 0; --i){
+		for (int j = 0; j < 8; ++j){
+			cout << board[i][j].getPiece()->getPieceType() << " ";
+		}
+		cout << endl;
+	}
+}
+
+void Board::movePiece(Square *from, Square *to){
+	Piece *pieceToDelete = to->getPiece();
+	to->setPiece(from->getPiece());
+	from->setPiece(new Piece('O', 'O'));
+	delete pieceToDelete;
+
+}
+
+void Board::testMethod(){
+	Square *a1 = findSquare("a1");
+	Square *b3 = findSquare("c4");
+
+	movePiece(a1, b3); 
+}
+
+
+Square* Board::findSquare(string squareNotation){
+	if(squareNotation.length() != 2){
+		throw logic_error("SquareNotation not right length");
+	}
+
+	char fileChar = squareNotation[0];
+	char rankChar = squareNotation[1];
+
+	int fileInt = fileChar - 97; // - 97 gets from the proper ascii char to the proper file 
+	int rankInt = rankChar - 49; // - 49 - 48 gets it to same number
+
+	return &board[rankInt][fileInt];
 }

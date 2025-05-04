@@ -29,6 +29,8 @@ void Piece::setCharArrayColor(bool array[256]){
 
 string Piece::getPieceRepresentation(char c, char t){
 	map<string, string> map{
+		{"OO", "\u25A1"}, //Empty Piece
+
 		{"WK", "\u2654"}, //White King
 		{"WQ", "\u2655"}, //White Queen
 		{"WR", "\u2656"}, //White Rook
